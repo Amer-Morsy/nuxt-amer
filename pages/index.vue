@@ -1,12 +1,20 @@
 <template>
   <div>
-    <button @click="show = !show">Toggle</button>
+    <h1>Home Page</h1>
+
+    <div class="box">
+      <h3>counter= {{ counterStore.count }}</h3>
+      <h4>double Counter= {{ counterStore.doubleCount }}</h4>
+      <button @click="counterStore.increment">INCREMENT</button>
+    </div>
+
+    <!-- <button @click="show = !show">Toggle</button> -->
     <!-- <transition>
       <p v-if="show">Hello</p>
     </transition> -->
-    <transition name="fade">
+    <!-- <transition name="fade">
       <p v-if="show">Hello Nuxt</p>
-    </transition>
+    </transition> -->
     <!-- <TeleportComponent /> -->
 
     <!-- <ChildSlotComponent>
@@ -40,16 +48,36 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useCounterStore } from "~/store/counter";
+
+const counterStore = useCounterStore();
+
 const show = ref(true);
-const dynamicValue = ref("Hello from the parent component");
+const dynamicValue = ref<string>("Hello from the parent component");
+
+interface Person {
+  name: string;
+  age: number;
+  gender: string;
+}
+const person = ref<Person>({
+  name: "John",
+  age: 30,
+  gender: "male",
+});
 
 const foo = useFoo();
 // const { $hello, $consoleIt } = useNuxtApp();
-const { data } = await useFetch("/api/hello");
+// const { data } = await useFetch("/api/hello");
 </script>
 
 <style lang="css">
+.box {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+}
 /* .v-eneter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;

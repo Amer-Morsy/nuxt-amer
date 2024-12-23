@@ -30,6 +30,12 @@ export default defineNuxtConfig({
   },
   plugins: [
     '~/plugins/foo/my-plugin',
-  ]
+  ],
+  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt',],
+
+  pinia: {
+    storesDirs: ['./stores/**/*.ts'],
+  },
+
 
 })  
