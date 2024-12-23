@@ -6,7 +6,7 @@
     <br />
     <nuxt-link to="/notes">Notes</nuxt-link>
     <br />
-    <nuxt-link :to="`/notes/${randomNumber()}`">Notes by ID</nuxt-link>
+    <!-- <nuxt-link :to="`/notes/${randomNumber()}`">Notes by ID</nuxt-link> -->
 
     <div>
       <slot />
