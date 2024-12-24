@@ -3,12 +3,16 @@ import type { NuxtPage } from "nuxt/schema";
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  
   components: [
     {
       path: '~/components',
       pathPrefix: false
     }
   ],
+
+  css: ['~/assets/css/main.css'],
+
   hooks: {
     'pages:extend'(pages) {
       function addNamedMiddlewareToAboutPage(pages: NuxtPage[]) {
@@ -22,15 +26,18 @@ export default defineNuxtConfig({
       addNamedMiddlewareToAboutPage(pages);
     },
   },
+
   imports: {
     dirs: [
       'composables',
       'composables/**'
     ]
   },
+
   plugins: [
     '~/plugins/foo/my-plugin',
   ],
+
   modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt',],
 
   pinia: {

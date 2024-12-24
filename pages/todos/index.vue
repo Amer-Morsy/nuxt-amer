@@ -1,17 +1,15 @@
 <template>
   <div>
-    <Banner />
-    <br />
-    <TodoList :todos="recentTodos" />
+    <h1>All Todos:</h1>
+    <TodoList :todos="todos" />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useTodoStore } from "~/store/todo";
 
 const tododStore = useTodoStore();
 const { todos } = storeToRefs(tododStore);
-const recentTodos = computed(() => todos.value.slice(-2).reverse());
 </script>
 
 <style scoped></style>

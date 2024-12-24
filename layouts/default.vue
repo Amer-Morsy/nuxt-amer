@@ -1,21 +1,16 @@
 <template>
   <div>
-    <nuxt-link to="/">Home</nuxt-link>
-    <br />
-    <nuxt-link to="/about">About</nuxt-link>
-    <br />
-    <nuxt-link to="/notes">Notes</nuxt-link>
-    <br />
-    <!-- <nuxt-link :to="`/notes/${randomNumber()}`">Notes by ID</nuxt-link> -->
-
-    <div>
+    <Navbar />
+    <main>
       <slot />
-    </div>
+    </main>
   </div>
 </template>
 
-<script setup>
-const randomNumber = () => Math.floor(Math.random() * 100);
-</script>
+<script setup></script>
 
-<style scoped></style>
+<style scoped>
+main {
+  padding: 1rem;
+}
+</style>
